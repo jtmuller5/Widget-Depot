@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoViewer extends StatefulWidget {
-
   final String videoUrl;
   final bool showFull;
+  final double x; // X alignment of FittedBox
+  final double y; // Y alignment of FittedBox
 
-  const VideoViewer({Key key, this.videoUrl, this.showFull}) : super(key: key);
+  const VideoViewer({Key key, this.videoUrl, this.showFull, this.x = 0, this.y = 0})
+      : super(key: key);
 
   @override
   _VideoViewerState createState() => _VideoViewerState();
@@ -39,9 +41,9 @@ class _VideoViewerState extends State<VideoViewer> {
             children: [
               Expanded(
                   child: AspectRatio(
-                    aspectRatio: videoPlayerController.value.aspectRatio,
-                    child: VideoPlayer(videoPlayerController),
-                  ))
+                aspectRatio: videoPlayerController.value.aspectRatio,
+                child: VideoPlayer(videoPlayerController),
+              ))
             ],
           );
         } else {
@@ -49,9 +51,9 @@ class _VideoViewerState extends State<VideoViewer> {
             children: [
               Expanded(
                   child: AspectRatio(
-                    aspectRatio: videoPlayerController.value.aspectRatio,
-                    child: VideoPlayer(videoPlayerController),
-                  ))
+                aspectRatio: videoPlayerController.value.aspectRatio,
+                child: VideoPlayer(videoPlayerController),
+              ))
             ],
           );
         }
@@ -61,6 +63,7 @@ class _VideoViewerState extends State<VideoViewer> {
       else {
         return FittedBox(
           fit: BoxFit.cover,
+          alignment: Alignment(widget.x, widget.y),
           child: SizedBox(
             height: videoPlayerController.value.size?.height ?? 0,
             width: videoPlayerController.value.size?.width ?? 0,

@@ -21,7 +21,7 @@ class WidgetDepotView extends StatelessWidget {
               Container(
                   height: 300,
                   width: MediaQuery.of(context).size.width,
-                  child: StackedVideoView(showFull: true,)),
+                  child: StackedVideoView(showFull: false,)),
               RaisedButton(
                   child: Text('Next'),
                   onPressed: (){

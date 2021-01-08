@@ -8,8 +8,19 @@ class StackedVideoViewModel extends BaseViewModel {
   void initialize(String videoUrl) {
     videoPlayerController = VideoPlayerController.network(videoUrl);
     videoPlayerController.initialize().then((value) {
+      videoPlayerController.setLooping(true);
       notifyListeners();
     });
+  }
+
+  void playVideo(){
+    videoPlayerController.play();
+    notifyListeners();
+  }
+
+  void pauseVideo(){
+    videoPlayerController.pause();
+    notifyListeners();
   }
 
   @override
