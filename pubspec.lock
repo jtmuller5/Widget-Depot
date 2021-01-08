@@ -127,7 +127,7 @@ packages:
     source: hosted
     version: "1.10.0-nullsafety.1"
   stacked:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: stacked
       url: "https://pub.dartlang.org"
@@ -176,7 +176,7 @@ packages:
     source: hosted
     version: "2.1.0-nullsafety.3"
   video_player:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: video_player
       url: "https://pub.dartlang.org"

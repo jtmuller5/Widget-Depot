@@ -11,13 +11,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  stacked: ^1.7.7
+  video_player: ^1.0.1
 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  stacked: ^1.7.7
-  video_player: ^1.0.1
+
 
 flutter:
   uses-material-design: true
