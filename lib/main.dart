@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:widget_depot/screens/placeholder.dart';
+import 'package:widget_depot/screens/placeholder_screen.dart';
+import 'package:widget_depot/screens/widgetScreens/camera_screen.dart';
+import 'package:widget_depot/screens/widgetScreens/video_screen.dart';
 import 'package:widget_depot/widget_depot_view.dart';
 
 void main() {
@@ -19,6 +21,8 @@ class MyApp extends StatelessWidget {
       home: WidgetDepotView(),
       routes: {
         WidgetDepotView.id: (context) => WidgetDepotView(),
+        VideoScreen.id: (context) => VideoScreen(),
+        CameraScreen.id: (context) => CameraScreen(),
         PlaceholderScreen.id: (context) => PlaceholderScreen()
       },
     );

@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  camera: ^0.6.4+5
+  permission_handler: ^5.0.1+1
   stacked: ^1.7.7
   video_player: ^1.0.1
 
