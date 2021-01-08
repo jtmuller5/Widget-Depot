@@ -23,7 +23,9 @@ class _VideoViewerState extends State<VideoViewer> {
       widget.videoUrl,
     );
     videoPlayerController.initialize().then((value) {
-      setState(() {});
+      setState(() {
+        videoPlayerController.setLooping(true);
+      });
     });
     super.initState();
   }
