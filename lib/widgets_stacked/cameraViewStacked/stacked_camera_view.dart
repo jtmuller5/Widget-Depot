@@ -8,7 +8,7 @@ class StackedCameraView extends StatelessWidget {
     return ViewModelBuilder<StackedCameraViewModel>.reactive(
       viewModelBuilder: () => StackedCameraViewModel(),
       onModelReady: (model) {
-        // model.initialize();
+        model.initialize();
       },
       builder: (context, model, child) {
         return Container();

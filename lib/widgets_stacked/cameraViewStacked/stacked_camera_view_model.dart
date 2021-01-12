@@ -10,6 +10,12 @@ class StackedCameraViewModel extends BaseViewModel with WidgetsBindingObserver{
 
   Future<void> initialize() async {
     cameras = await availableCameras();
+    controller = CameraController(cameras[0], ResolutionPreset.medium);
+    controller.initialize().then((_) {
+      notifyListeners();
+    });
+
+    notifyListeners();
   }
 
   @override
@@ -22,7 +28,7 @@ class StackedCameraViewModel extends BaseViewModel with WidgetsBindingObserver{
       controller?.dispose();
     } else if (state == AppLifecycleState.resumed) {
       if (controller != null) {
-        onNewCameraSelected(controller.description);
+       // onNewCameraSelected(controller.description);
       }
     }
   }
