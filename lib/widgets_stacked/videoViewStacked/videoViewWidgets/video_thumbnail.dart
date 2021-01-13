@@ -3,11 +3,14 @@ import 'package:stacked/stacked.dart';
 import 'package:video_player/video_player.dart';
 import 'package:widget_depot/widgets_stacked/videoViewStacked/stacked_video_view_model.dart';
 
+/// (1) Use the WidgetsBindingObserver to get the VideoThumbnail's size
+/// after it is laid out
 class VideoThumbnail extends ViewModelWidget<StackedVideoViewModel> with WidgetsBindingObserver{
 
   @override
   Widget build(BuildContext context, StackedVideoViewModel model) {
 
+    /// (3) Get the size of the widget after it is rendered on screen
     WidgetsBinding.instance
         .addPostFrameCallback((_) {
           if(!model.gotThumbnailSize)model.getVideoSize();
@@ -23,6 +26,7 @@ class VideoThumbnail extends ViewModelWidget<StackedVideoViewModel> with Widgets
 
           if (wideVideo) {
             return Row(
+              /// (2) Mark the final video thumbnail with a GlobalObject Key
               key: model.thumbnailKey,
               children: [
                 Expanded(
@@ -35,6 +39,7 @@ class VideoThumbnail extends ViewModelWidget<StackedVideoViewModel> with Widgets
             );
           } else {
             return Column(
+              /// (2) Mark the final video thumbnail with a GlobalObject Key
               key: model.thumbnailKey,
               children: [
                 Expanded(
@@ -51,6 +56,7 @@ class VideoThumbnail extends ViewModelWidget<StackedVideoViewModel> with Widgets
         // Else just show a portion of the video viewport
         else {
           return FittedBox(
+            /// (2) Mark the final video thumbnail with a GlobalObject Key
             key: model.thumbnailKey,
             fit: BoxFit.cover,
             alignment: Alignment(model.x, model.y),

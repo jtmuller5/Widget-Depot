@@ -8,19 +8,47 @@ class StackedVideoViewModel extends BaseViewModel {
   // Input Properties
   VideoPlayerController videoPlayerController;
   bool showFull;
+  bool showRemaining;
   double x; // X alignment of FittedBox
   double y; // Y alignment of FittedBox
 
   // Local Properties
   bool gotThumbnailSize = false;
-  double thumbnailWidth;
-  double thumbnailHeight;
+  double thumbnailWidth = 300;
+  double thumbnailHeight = 200;
 
   /// Keys
   GlobalKey thumbnailKey = GlobalObjectKey('video_thumbnail');
 
-  void initialize(String videoUrl, bool full,double inx, double iny) {
+  /// Getters
+  Duration get totalVideoLength{
+    return videoPlayerController.value.duration;
+  }
+
+  String get totalVideoLengthString{
+    return _printDuration(totalVideoLength);
+  }
+
+  Duration get timeRemaining {
+    Duration current = videoPlayerController.value.position;
+    int millis = totalVideoLength.inMilliseconds - current.inMilliseconds;
+    return Duration(milliseconds: millis);
+  }
+
+  String get timeRemainingString {
+    return _printDuration( timeRemaining);
+  }
+
+  String _printDuration(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
+    String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
+    return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
+  }
+
+  void initialize(String videoUrl, bool full,double inx, double iny, bool remaining) {
     showFull = full;
+    showRemaining = remaining;
     x = inx;
     y = iny;
 
@@ -28,6 +56,13 @@ class StackedVideoViewModel extends BaseViewModel {
     videoPlayerController.initialize().then((value) {
       videoPlayerController.setLooping(true);
       notifyListeners();
+    });
+
+    videoPlayerController.addListener(() {
+      if(remaining && videoPlayerController.value.isPlaying) {
+        print('updating vp');
+        notifyListeners();
+      }
     });
   }
 
@@ -41,21 +76,20 @@ class StackedVideoViewModel extends BaseViewModel {
     notifyListeners();
   }
 
+  /// Get the width and height dimensions of the Video Thumbnail
   void getVideoSize(){
 
     RenderBox render = thumbnailKey.currentContext.findRenderObject() as RenderBox;
-    //Constraints constraints = render.constraints;
+
     thumbnailWidth = render.size.width;
     thumbnailHeight = render.size.height;
-
-    print("height: ${thumbnailHeight.toString()}");
-    print("width: ${thumbnailWidth.toString()}");
 
     gotThumbnailSize = true;
 
     notifyListeners();
   }
 
+  /// Dispose the VideoPlayerController
   @override
   void dispose() {
     videoPlayerController.dispose();

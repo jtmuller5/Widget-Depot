@@ -8,6 +8,6 @@ class VideoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Showcase(StackedVideoView(), 'Video Player');
+    return Showcase(StackedVideoView(showRemaining: true,canPlay: true,), 'Video Player');
   }
 }
