@@ -25,6 +25,7 @@ class VideoThumbnail extends ViewModelWidget<StackedVideoViewModel> with Widgets
                   model.videoPlayerController.value.size.height;
 
           if (wideVideo) {
+            print('wide thumbnail');
             return Row(
               /// (2) Mark the final video thumbnail with a GlobalObject Key
               key: model.thumbnailKey,
@@ -38,6 +39,7 @@ class VideoThumbnail extends ViewModelWidget<StackedVideoViewModel> with Widgets
               ],
             );
           } else {
+            print('tall thumbnail');
             return Column(
               /// (2) Mark the final video thumbnail with a GlobalObject Key
               key: model.thumbnailKey,
@@ -55,16 +57,19 @@ class VideoThumbnail extends ViewModelWidget<StackedVideoViewModel> with Widgets
 
         // Else just show a portion of the video viewport
         else {
-          return FittedBox(
-            /// (2) Mark the final video thumbnail with a GlobalObject Key
-            key: model.thumbnailKey,
-            fit: BoxFit.cover,
-            alignment: Alignment(model.x, model.y),
-            child: SizedBox(
-              height:
-              model.videoPlayerController.value.size?.height ?? 0,
-              width: model.videoPlayerController.value.size?.width ?? 0,
-              child: VideoPlayer(model.videoPlayerController),
+          print('fitted thumbnail');
+          return SizedBox.expand(
+            child: FittedBox(
+              /// (2) Mark the final video thumbnail with a GlobalObject Key
+              key: model.thumbnailKey,
+              fit: BoxFit.cover,
+              alignment: Alignment(model.x, model.y),
+              child: SizedBox(
+                height:
+                model.videoPlayerController.value.size?.height ?? 0,
+                width: model.videoPlayerController.value.size?.width ?? 0,
+                child: VideoPlayer(model.videoPlayerController),
+              ),
             ),
           );
         }

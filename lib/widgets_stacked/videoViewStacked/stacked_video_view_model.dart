@@ -9,6 +9,7 @@ class StackedVideoViewModel extends BaseViewModel {
   VideoPlayerController videoPlayerController;
   bool showFull;
   bool showRemaining;
+  bool showElapsed;
   double x; // X alignment of FittedBox
   double y; // Y alignment of FittedBox
 
@@ -39,6 +40,14 @@ class StackedVideoViewModel extends BaseViewModel {
     return _printDuration( timeRemaining);
   }
 
+  Duration get timeElapsed {
+    return videoPlayerController.value.position;
+  }
+
+  String get timeElapsedString {
+    return _printDuration(timeElapsed);
+  }
+
   String _printDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
@@ -46,9 +55,10 @@ class StackedVideoViewModel extends BaseViewModel {
     return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
   }
 
-  void initialize(String videoUrl, bool full,double inx, double iny, bool remaining) {
+  void initialize(String videoUrl, bool full,double inx, double iny, bool remaining, bool elapse) {
     showFull = full;
     showRemaining = remaining;
+    showElapsed = elapse;
     x = inx;
     y = iny;
 

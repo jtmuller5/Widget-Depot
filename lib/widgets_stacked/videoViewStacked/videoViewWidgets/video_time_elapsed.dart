@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:widget_depot/widgets_stacked/videoViewStacked/stacked_video_view_model.dart';
 
-class VideoTimeRemaining extends ViewModelWidget<StackedVideoViewModel> {
+import '../stacked_video_view_model.dart';
+
+class VideoTimeElapsed extends ViewModelWidget<StackedVideoViewModel> {
   @override
   Widget build(BuildContext context, StackedVideoViewModel model) {
     return Container(
-      padding: EdgeInsets.only(bottom: 8, right: 8),
+      padding: EdgeInsets.only(bottom: 8, left: 8),
       height: model.thumbnailHeight,
       width: model.thumbnailWidth,
       child: Align(
-        alignment: Alignment.bottomRight,
+        alignment: Alignment.bottomLeft,
         child: Container(
           child: Text(
-            model.timeRemainingString,
+            model.timeElapsedString,
             style: TextStyle(color: Colors.white),
           ),
         ),
