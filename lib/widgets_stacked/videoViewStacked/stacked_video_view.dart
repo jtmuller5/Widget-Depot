@@ -9,6 +9,9 @@ import 'package:widget_depot/widgets_stacked/videoViewStacked/videoViewWidgets/v
 
 /// Shows just the Video thumbnail
 class StackedVideoView extends StatelessWidget {
+  /// The video URL you want to display
+  final String videoURL;
+
   /// Should the entire video be visible?
   final bool showFull;
 
@@ -29,6 +32,7 @@ class StackedVideoView extends StatelessWidget {
 
   const StackedVideoView({
     Key key,
+    this.videoURL = 'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4',
     this.showFull = false,
     this.canPlay = false,
     this.showRemaining = false,
@@ -45,7 +49,7 @@ class StackedVideoView extends StatelessWidget {
       viewModelBuilder: () => StackedVideoViewModel(),
       onModelReady: (model) {
         model.initialize(
-            'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4',
+            videoURL,
             showFull,
             x,
             y,
