@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:widget_depot/screens/placeholder_screen.dart';
-import 'package:widget_depot/screens/widgetScreens/video_screen.dart';
-import 'package:widget_depot/widget_depot_view_model.dart';
-import 'package:widget_depot/widgets_stacked/videoViewStacked/stacked_video_view.dart';
+
+import 'screens/widgetScreens/video_screen.dart';
+import 'widget_depot_view_model.dart';
 
 class WidgetDepotView extends StatelessWidget {
   static const String id = 'widget_depot_screen';

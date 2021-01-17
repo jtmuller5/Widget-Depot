@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:widget_depot/widgets_stacked/videoViewStacked/stacked_video_view.dart';
+
+import 'screens/placeholder_screen.dart';
+import 'screens/widgetScreens/camera_screen.dart';
+import 'screens/widgetScreens/video_screen.dart';
+import 'widget_depot_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,51 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Widget Depot',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              'test',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-StackedVideoView()
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      home: WidgetDepotView(),
+      routes: {
+        WidgetDepotView.id: (context) => WidgetDepotView(),
+        VideoScreen.id: (context) => VideoScreen(),
+        CameraScreen.id: (context) => CameraScreen(),
+        PlaceholderScreen.id: (context) => PlaceholderScreen()
+      },
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:widget_depot/widget_depot_view.dart';
+import 'file:///H:/Mullr/Mobile%20Apps/Flutter%20Apps/widget_depot/example/lib/widget_depot_view.dart';
 
 class PlaceholderScreen extends StatelessWidget {
   static const String id = 'placeholder_screen';
