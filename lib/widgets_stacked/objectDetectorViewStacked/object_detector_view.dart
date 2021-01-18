@@ -10,16 +10,17 @@ class ObjectDetectorView extends StatelessWidget {
     return ViewModelBuilder<ObjectDetectorViewModel>.reactive(
       viewModelBuilder: () => ObjectDetectorViewModel(),
       onModelReady: (model) {
-        // model.initialize();
+        model.initialize(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            context: context);
       },
       builder: (context, model, child) {
         return Scaffold(
             body: Column(
-              children: [
-                CameraPreviewCustom()
-              ],
-            )
-        );
+          mainAxisSize: MainAxisSize.min,
+          children: [CameraPreviewCustom()],
+        ));
       },
     );
   }

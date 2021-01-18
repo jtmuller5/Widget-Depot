@@ -1,3 +1,5 @@
+import 'package:example/screens/widgetScreens/object_detector_screen.dart';
+import 'package:example/screens/widgetScreens/video_frame_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/placeholder_screen.dart';
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
       routes: {
         WidgetDepotView.id: (context) => WidgetDepotView(),
         VideoScreen.id: (context) => VideoScreen(),
+        VideoFrameScreen.id: (context) => VideoFrameScreen(),
+        ObjectDetectorScreen.id: (context) => ObjectDetectorScreen(),
         CameraScreen.id: (context) => CameraScreen(),
         PlaceholderScreen.id: (context) => PlaceholderScreen()
       },

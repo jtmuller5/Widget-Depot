@@ -1,13 +1,13 @@
 Executable : D:\Android\cmake\3.6.4111459\bin\cmake.exe
 arguments : 
--HH:\Mullr\Mobile Apps\Work\QOOKIT\android
--BH:\Mullr\Mobile Apps\Work\QOOKIT\android\app\.cxx\cmake\debug\armeabi-v7a
+-HH:\Mullr\Mobile Apps\Flutter Apps\widget_depot\example\android
+-BH:\Mullr\Mobile Apps\Flutter Apps\widget_depot\example\android\app\.cxx\cmake\debug\armeabi-v7a
 -DANDROID_ABI=armeabi-v7a
 -DANDROID_PLATFORM=android-21
--DCMAKE_LIBRARY_OUTPUT_DIRECTORY=H:\Mullr\Mobile Apps\Work\QOOKIT\build\app\intermediates\cmake\debug\obj\armeabi-v7a
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=H:\Mullr\Mobile Apps\Flutter Apps\widget_depot\example\build\app\intermediates\cmake\debug\obj\armeabi-v7a
 -DCMAKE_BUILD_TYPE=Debug
--DANDROID_NDK=D:\Android\ndk\21.3.6528147
--DCMAKE_TOOLCHAIN_FILE=D:\Android\ndk\21.3.6528147\build\cmake\android.toolchain.cmake
+-DANDROID_NDK=D:\Android\ndk\22.0.7026061
+-DCMAKE_TOOLCHAIN_FILE=D:\Android\ndk\22.0.7026061\build\cmake\android.toolchain.cmake
 -DCMAKE_MAKE_PROGRAM=D:\Android\cmake\3.6.4111459\bin\ninja.exe
 -GAndroid Gradle - Ninja
 jvmArgs : 

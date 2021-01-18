@@ -1,10 +1,13 @@
 
 {
-	"buildFiles" : [ "H:/Mullr/Mobile Apps/Work/QOOKIT/android/CMakeLists.txt" ],
+	"buildFiles" : 
+	[
+		"H:/Mullr/Mobile Apps/Flutter Apps/widget_depot/example/android/CMakeLists.txt"
+	],
 	"cFileExtensions" : [ "c" ],
 	"cleanCommands" : 
 	[
-		"D:\\Android\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"H:\\Mullr\\Mobile Apps\\Work\\QOOKIT\\android\\app\\.cxx\\cmake\\debug\\armeabi-v7a\" --target clean"
+		"D:\\Android\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"H:\\Mullr\\Mobile Apps\\Flutter Apps\\widget_depot\\example\\android\\app\\.cxx\\cmake\\debug\\armeabi-v7a\" --target clean"
 	],
 	"libraries" : 
 	{
@@ -12,27 +15,27 @@
 		{
 			"abi" : "armeabi-v7a",
 			"artifactName" : "convertImage",
-			"buildCommand" : "D:\\Android\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"H:\\Mullr\\Mobile Apps\\Work\\QOOKIT\\android\\app\\.cxx\\cmake\\debug\\armeabi-v7a\" --target convertImage",
+			"buildCommand" : "D:\\Android\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"H:\\Mullr\\Mobile Apps\\Flutter Apps\\widget_depot\\example\\android\\app\\.cxx\\cmake\\debug\\armeabi-v7a\" --target convertImage",
 			"buildType" : "debug",
 			"files" : 
 			[
 				
 				{
-					"flags" : "  --target=armv7-none-linux-androideabi21 --gcc-toolchain=D:/Android/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DconvertImage_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC      -c ",
-					"src" : "H:/Mullr/Mobile Apps/Work/QOOKIT/ios/Classes/converter.c",
-					"workingDirectory" : "H:/Mullr/Mobile Apps/Work/QOOKIT/android/app/.cxx/cmake/debug/armeabi-v7a"
+					"flags" : "  --target=armv7-none-linux-androideabi21 --gcc-toolchain=D:/Android/ndk/22.0.7026061/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android/ndk/22.0.7026061/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DconvertImage_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security  -O0 -fno-limit-debug-info  -fPIC      -c ",
+					"src" : "H:/Mullr/Mobile Apps/Flutter Apps/widget_depot/example/ios/Classes/converter.c",
+					"workingDirectory" : "H:/Mullr/Mobile Apps/Flutter Apps/widget_depot/example/android/app/.cxx/cmake/debug/armeabi-v7a"
 				}
 			],
-			"output" : "H:/Mullr/Mobile Apps/Work/QOOKIT/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libconvertImage.so",
-			"toolchain" : "906775505"
+			"output" : "H:/Mullr/Mobile Apps/Flutter Apps/widget_depot/example/build/app/intermediates/cmake/debug/obj/armeabi-v7a/libconvertImage.so",
+			"toolchain" : "578585"
 		}
 	},
 	"toolchains" : 
 	{
-		"906775505" : 
+		"578585" : 
 		{
-			"cCompilerExecutable" : "D:/Android/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
-			"cppCompilerExecutable" : "D:/Android/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
+			"cCompilerExecutable" : "D:/Android/ndk/22.0.7026061/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe",
+			"cppCompilerExecutable" : "D:/Android/ndk/22.0.7026061/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe"
 		}
 	}
 }

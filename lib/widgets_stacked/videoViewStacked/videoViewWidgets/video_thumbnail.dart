@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:video_player/video_player.dart';
+import 'package:widget_depot/widgets_stacked/mixins/video_thumbnail_mixin.dart';
 import 'package:widget_depot/widgets_stacked/videoViewStacked/stacked_video_view_model.dart';
 
 /// (1) Use the WidgetsBindingObserver to get the VideoThumbnail's size

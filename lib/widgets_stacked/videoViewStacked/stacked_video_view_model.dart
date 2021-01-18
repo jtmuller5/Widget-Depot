@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:stacked/stacked.dart';
 import 'package:video_player/video_player.dart';
+import 'package:widget_depot/widgets_stacked/mixins/video_thumbnail_mixin.dart';
 
 class StackedVideoViewModel extends BaseViewModel {
-
-  // Input Properties
+  // Input properties
   VideoPlayerController videoPlayerController;
   bool showFull;
   bool showRemaining;
   bool showElapsed;
+  bool allowSelection;
   double x; // X alignment of FittedBox
   double y; // Y alignment of FittedBox
+
+  /// Local properties
+  bool loading = false;
 
   // Local Properties
   bool gotThumbnailSize = false;
@@ -22,11 +25,11 @@ class StackedVideoViewModel extends BaseViewModel {
   GlobalKey thumbnailKey = GlobalObjectKey('video_thumbnail');
 
   /// Getters
-  Duration get totalVideoLength{
+  Duration get totalVideoLength {
     return videoPlayerController.value.duration;
   }
 
-  String get totalVideoLengthString{
+  String get totalVideoLengthString {
     return _printDuration(totalVideoLength);
   }
 
@@ -37,7 +40,7 @@ class StackedVideoViewModel extends BaseViewModel {
   }
 
   String get timeRemainingString {
-    return _printDuration( timeRemaining);
+    return _printDuration(timeRemaining);
   }
 
   Duration get timeElapsed {
@@ -55,13 +58,26 @@ class StackedVideoViewModel extends BaseViewModel {
     return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
   }
 
-  void initialize(String videoUrl, bool full,double inx, double iny, bool remaining, bool elapse) {
+  void initialize(
+    String videoUrl,
+    bool full,
+    double inx,
+    double iny,
+    bool remaining,
+    bool elapse,
+    bool selection,
+  ) {
     showFull = full;
     showRemaining = remaining;
     showElapsed = elapse;
+    allowSelection = selection;
     x = inx;
     y = iny;
 
+    initializeVideo(videoUrl, remaining);
+  }
+
+  void initializeVideo(String videoUrl, bool showRemaining){
     videoPlayerController = VideoPlayerController.network(videoUrl);
     videoPlayerController.initialize().then((value) {
       videoPlayerController.setLooping(true);
@@ -69,20 +85,38 @@ class StackedVideoViewModel extends BaseViewModel {
     });
 
     videoPlayerController.addListener(() {
-      if(remaining && videoPlayerController.value.isPlaying) {
+      if(showRemaining && videoPlayerController.value.isPlaying) {
         print('updating vp');
         notifyListeners();
       }
     });
   }
 
-  void playVideo(){
+  void playVideo() {
     videoPlayerController.play();
     notifyListeners();
   }
 
-  void pauseVideo(){
+  void pauseVideo() {
     videoPlayerController.pause();
+    notifyListeners();
+  }
+
+  /// Scroll the video to the selected second and update listeners
+  void updateFrame(int seconds){
+
+    setLoading(true);
+
+    videoPlayerController
+        .seekTo(Duration(seconds: seconds));
+
+    setLoading(false);
+
+    notifyListeners();
+  }
+
+  void setLoading(bool val){
+    loading = val;
     notifyListeners();
   }
 

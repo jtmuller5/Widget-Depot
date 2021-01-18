@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 import 'package:video_player/video_player.dart';
 import 'package:widget_depot/widgets_stacked/videoViewStacked/stacked_video_view_model.dart';
 import 'package:widget_depot/widgets_stacked/videoViewStacked/videoViewWidgets/video_control_overlay.dart';
+import 'package:widget_depot/widgets_stacked/videoViewStacked/videoViewWidgets/video_frame_selector.dart';
 import 'package:widget_depot/widgets_stacked/videoViewStacked/videoViewWidgets/video_thumbnail.dart';
 import 'package:widget_depot/widgets_stacked/videoViewStacked/videoViewWidgets/video_time_elapsed.dart';
 import 'package:widget_depot/widgets_stacked/videoViewStacked/videoViewWidgets/video_time_remaining.dart';
@@ -24,6 +25,9 @@ class StackedVideoView extends StatelessWidget {
   /// Show the amount of time elapsed in the video
   final bool showElapsed;
 
+  /// Allow the user to select a frame from the video
+  final bool allowSelection;
+
   /// X alignment of FittedBox
   final double x;
 
@@ -37,6 +41,7 @@ class StackedVideoView extends StatelessWidget {
     this.canPlay = false,
     this.showRemaining = false,
     this.showElapsed = false,
+    this.allowSelection = false,
     this.x = 0,
     this.y = 0,
   }) : super(
@@ -54,10 +59,11 @@ class StackedVideoView extends StatelessWidget {
             x,
             y,
             showRemaining,
-        showElapsed);
+        showElapsed,
+        allowSelection);
       },
       builder: (context, model, child) {
-        if (model.videoPlayerController.value.initialized) {
+        if (model.videoPlayerController.value.initialized && !model.loading) {
           return Stack(
             alignment: Alignment.bottomCenter,
             children: [
@@ -65,6 +71,7 @@ class StackedVideoView extends StatelessWidget {
               if (canPlay) VideoControlOverlay(),
               if (canPlay && showRemaining) VideoTimeRemaining(),
               if (canPlay && showElapsed) VideoTimeElapsed(),
+              if(allowSelection) VideoFrameSelector(),
               if (canPlay)
                 VideoProgressIndicator(
                   model.videoPlayerController,

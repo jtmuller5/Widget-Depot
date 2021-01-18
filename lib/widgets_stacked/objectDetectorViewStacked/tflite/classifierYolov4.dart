@@ -22,10 +22,10 @@ class Classifier {
   /// Labels file loaded as list
   List<String> _labels;
 
-  static const String MODEL_FILE_NAME = 'groceries-yolov4-tiny-416-01-09-21.tflite';
-  static const String LABEL_FILE_NAME = 'groceries.names';
+  final String modelFileName = 'groceries-yolov4-tiny-416-01-09-21.tflite';
+  final String labelFileName = 'groceries.names';
 
-  /// Input size of image (heixght = width = 300)
+  /// Input size of image (height = width = 300)
   static const int INPUT_SIZE = 416;
 
   /// Confidence Probabilty score threshold
@@ -79,7 +79,7 @@ class Classifier {
 
       _interpreter = interpreter ??
           await Interpreter.fromAsset(
-            MODEL_FILE_NAME,
+            modelFileName,
             options: InterpreterOptions()..threads = numThreads, //myOptions,
           );
 
@@ -101,7 +101,7 @@ class Classifier {
   void loadLabels({List<String> labels}) async {
     try {
       _labels =
-          labels ?? await FileUtil.loadLabels("assets/" + LABEL_FILE_NAME);
+          labels ?? await FileUtil.loadLabels("assets/" + labelFileName);
     } catch (e) {
       print("Error while loading labels: $e");
     }

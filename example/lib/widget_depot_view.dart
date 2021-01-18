@@ -1,3 +1,5 @@
+import 'package:example/screens/widgetScreens/object_detector_screen.dart';
+import 'package:example/screens/widgetScreens/video_frame_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -22,7 +24,19 @@ class WidgetDepotView extends StatelessWidget {
               onTap: (){
                 Navigator.of(context).pushNamed(VideoScreen.id);
               },
-            )
+            ),
+            ListTile(
+              title: Text('Video Frame Selector'),
+              onTap: (){
+                Navigator.of(context).pushNamed(VideoFrameScreen.id);
+              },
+            ),
+            ListTile(
+              title: Text('Object Detector'),
+              onTap: (){
+                Navigator.of(context).pushNamed(ObjectDetectorScreen.id);
+              },
+            ),
           ],
         ),
       ),

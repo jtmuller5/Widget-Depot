@@ -11,8 +11,21 @@ class VideoFrameSelector extends ViewModelWidget<StackedVideoViewModel> {
       width: model.thumbnailWidth,
       child: Stack(
         children: <Widget>[
-          Slider(value: null,
-              onChanged: null)
+          /// Slider indicates the second that the video is on
+          Positioned(
+            bottom: -8,
+            left: 0,
+            right: 0,
+            child: Slider(
+              max: model.totalVideoLength.inSeconds.toDouble(),
+              min: 0,
+              value:
+                  model.videoPlayerController.value.position.inSeconds.toDouble(),
+              onChanged: (seconds) {
+                model.updateFrame(seconds.toInt());
+              },
+            ),
+          )
         ],
       ),
     );
