@@ -1,0 +1,3 @@
+H:/Mullr/Mobile Apps/Work/QOOKIT/android/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/rebuild_cache.dir
+H:/Mullr/Mobile Apps/Work/QOOKIT/android/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/convertImage.dir
+H:/Mullr/Mobile Apps/Work/QOOKIT/android/app/.cxx/cmake/debug/arm64-v8a/CMakeFiles/edit_cache.dir

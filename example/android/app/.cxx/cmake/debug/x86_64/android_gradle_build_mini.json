@@ -1,0 +1,16 @@
+{
+  "buildFiles": [
+    "H:\\Mullr\\Mobile Apps\\Work\\QOOKIT\\android\\CMakeLists.txt"
+  ],
+  "cleanCommands": [
+    "D:\\Android\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"H:\\Mullr\\Mobile Apps\\Work\\QOOKIT\\android\\app\\.cxx\\cmake\\debug\\x86_64\" --target clean"
+  ],
+  "libraries": {
+    "convertImage-Debug-x86_64": {
+      "artifactName": "convertImage",
+      "buildCommand": "D:\\Android\\cmake\\3.6.4111459\\bin\\cmake.exe --build \"H:\\Mullr\\Mobile Apps\\Work\\QOOKIT\\android\\app\\.cxx\\cmake\\debug\\x86_64\" --target convertImage",
+      "abi": "x86_64",
+      "output": "H:\\Mullr\\Mobile Apps\\Work\\QOOKIT\\build\\app\\intermediates\\cmake\\debug\\obj\\x86_64\\libconvertImage.so"
+    }
+  }
+}
